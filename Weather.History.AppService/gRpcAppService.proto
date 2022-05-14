@@ -1,0 +1,39 @@
+﻿syntax = "proto3";
+
+
+import "google/protobuf/empty.proto";
+
+
+
+service gRpcAppService
+{
+	rpc IsAlive(RpcRequest) returns (RpcResponse);
+	rpc Unconceal(RpcRequest) returns (RpcResponse);
+	rpc GetPosition(RpcRequest) returns (Position);
+}
+
+message RpcRequest
+{
+
+}
+
+message Position
+{
+	string Latitude = 1;
+	string Longitude = 2;
+}
+
+message RpcResponse
+{
+	oneof result
+	{
+		string message = 1;
+		gRpcException error = 2;
+	}
+}
+
+message gRpcException
+{
+	string message = 1;
+	string stackTrace = 2;
+}

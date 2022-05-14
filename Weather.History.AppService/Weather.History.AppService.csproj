@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AppService.cs" />
+    <Compile Remove="AppServiceHost.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="gRpcAppService.proto" GrpcServices="Both"></Protobuf>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Geolocation" Version="1.2.1" />
+    <PackageReference Include="Grpc.Core" Version="2.45.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.45.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="GrpcDotNetNamedPipes" Version="1.4.4" />
+    <PackageReference Include="Uno.WinUI" Version="4.2.6" />
+    <PackageReference Include="Vanara.PInvoke.Kernel32" Version="3.4.1" />
+    <PackageReference Include="Vanara.PInvoke.User32" Version="3.4.1" />
+  </ItemGroup>
+
+</Project>
